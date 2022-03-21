@@ -14,7 +14,7 @@ tiles.addTo(map);
 
 // Making marker with icon
 let issIcon = L.icon({
-    iconUrl: 'iss.png',
+    iconUrl: './images/iss.png',
     iconSize: [50, 40],
     iconAnchor: [25, 16],
     popupAnchor: [-3, -76],
