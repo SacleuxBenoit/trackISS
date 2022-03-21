@@ -6,7 +6,8 @@ let pVisibility = document.getElementById('visibility');
 let pVelocity = document.getElementById('velocity');
 
 // Making map and tiles 
-let map = L.map('map').setView([0, 0], 1);
+let map = L.map('map').setView([0,0], 1);
+    map.setZoom(3);
 let attribution = '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'; 
 let tileURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 let tiles = L.tileLayer(tileURL,{attribution});
