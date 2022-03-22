@@ -4,6 +4,7 @@ let pLongitude = document.getElementById('long');
 let pAltitude = document.getElementById('alt');
 let pVisibility = document.getElementById('visibility');
 let pVelocity = document.getElementById('velocity');
+let pTimestamp = document.getElementById('timestamp');
 
 // Making map and tiles 
 let map = L.map('map').setView([0,0], 1);
@@ -26,16 +27,17 @@ let api_url = "https://api.wheretheiss.at/v1/satellites/25544";
 async function getISS(){
     let response = await fetch(api_url);
     let data = await response.json();
-    let { latitude, longitude, altitude, visibility, velocity} = data;
+    let { latitude, longitude, altitude, visibility, velocity, timestamp} = data;
     marker.setLatLng([latitude,longitude]);
     console.log(data);
     L.circle([latitude, longitude], {radius: 200}).addTo(map);
-    map.panTo([latitude,longitude],7) 
+    map.panTo([latitude,longitude],7);
     pLatitude.textContent = latitude.toFixed(4);
     pLongitude.textContent = longitude.toFixed(4);
     pAltitude.textContent = altitude.toFixed(2);
     pVelocity.textContent = velocity.toFixed(2)
     pVisibility.textContent = visibility;
+    pTimestamp.textContent = timestamp;
 }
 
 // refresh the function getISS every 1 second
