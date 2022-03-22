@@ -32,6 +32,9 @@ async function getISS(){
     console.log(data);
     L.circle([latitude, longitude], {radius: 200}).addTo(map);
     map.panTo([latitude,longitude],7);
+    // Convert timestamp
+    // let currentDate = new Date(timestamp)
+    // Display data
     pLatitude.textContent = latitude.toFixed(4);
     pLongitude.textContent = longitude.toFixed(4);
     pAltitude.textContent = altitude.toFixed(2);
