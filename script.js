@@ -9,6 +9,10 @@ let pTimestamp = document.getElementById('timestamp');
 // Making map and tiles 
 let map = L.map('map').setView([0,0], 1);
     map.setZoom(3);
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+    // map.dragging.disable();
+    // map.boxZoom.disable();
 let attribution = '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'; 
 let tileURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 let tiles = L.tileLayer(tileURL,{attribution});
@@ -33,14 +37,14 @@ async function getISS(){
     L.circle([latitude, longitude], {radius: 200}).addTo(map);
     map.panTo([latitude,longitude],7);
     // Convert timestamp
-    // let currentDate = new Date(timestamp)
+    let currentDate = new Date(timestamp*1000)
     // Display data
     pLatitude.textContent = latitude.toFixed(4);
     pLongitude.textContent = longitude.toFixed(4);
     pAltitude.textContent = altitude.toFixed(2);
     pVelocity.textContent = velocity.toFixed(2)
     pVisibility.textContent = visibility;
-    pTimestamp.textContent = timestamp;
+    pTimestamp.textContent = currentDate;
 }
 
 // refresh the function getISS every 1 second
