@@ -8,9 +8,7 @@ let pTimestamp = document.getElementById('timestamp');
 
 // Making map and tiles 
 let map = L.map('map').setView([0,0], 1);
-    map.setZoom(3);
-    map.doubleClickZoom.disable();
-    map.scrollWheelZoom.disable();
+    // map.scrollWheelZoom.disable();
     // map.dragging.disable();
     // map.boxZoom.disable();
 let attribution = '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'; 
